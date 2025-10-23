@@ -6,6 +6,7 @@ const userSelect = document.getElementById("user-select");
 const bookmarkList = document.getElementById("bookmark-list");
 const noBookmarksMessage = document.getElementById("no-bookmarks-message");
 const form = document.getElementById("bookmark-form");
+const clearButton = document.getElementById("clear");
 
 let currentUserId = null;
 
@@ -58,6 +59,12 @@ function displayBookmarks(userId) {
 
 userSelect.addEventListener("change", () => {
   currentUserId = userSelect.value;
+  displayBookmarks(currentUserId);
+});
+
+clearButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  clearData(currentUserId);
   displayBookmarks(currentUserId);
 });
 
